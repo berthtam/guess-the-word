@@ -1,5 +1,5 @@
-const guessList = document.querySelector(".guessed-letter");
-const guessButton = document.querySelector(".guess");
+const guessLettersElement = document.querySelector(".guessed-letter");
+const guessLetterButton = document.querySelector(".guess");
 const letterInput = document.querySelector(".letter");
 const wordInProgress = document.querySelector(".word-in-progress");
 const remainingGuessElement = document.querySelector(".remaining");
@@ -9,18 +9,20 @@ const playAgainButton = document.querySelector(".play-again");
 
 const word = "magnolia";
 
-const placeholder = function(word) {
-  const placeholderLetters = "●";
-  for (const letter of word){
+const placeholder = function (word) {
+  const placeholderLetters = [];
+  for (const letter of word) {
     console.log(letter);
     placeholderLetters.push("●");
   }
-    wordInProgress.innerText= placeholderLetters.join("●");
+    wordInProgress.innerText = placeholderLetters.join("");
 };
 
-addGuessButton.addEventListener("click", function(){
+placeholder(word);
+
+guessLetterButton.addEventListener("click", function (e) {
     e.preventDefault();
-    var guess = input.value;
+    const guess = letterInput.value;
     console.log(guess);
     letterInput.value = "";
 });
